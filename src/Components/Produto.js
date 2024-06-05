@@ -25,7 +25,7 @@ const css = StyleSheet.create({
     container: {
         width: "100%",
         height: 600
-    },
+    }, 
     boxTitle: {
         width: "100%",
         display: "flex",
@@ -39,11 +39,11 @@ const css = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 50,
-        backgroundColor: "white",
+        backgroundColor: "#7723CD",
         marginRight: 10
     },
     title: {
-        color: "white",
+        color: "black",
         textAlign: "center"
     },
     boxImage: {
@@ -65,7 +65,7 @@ const css = StyleSheet.create({
         padding: 10
     },
     descriptionText: {
-        color: "white",
+        color: "black",
         textAlign: "justify"
     },
     categoryBox: {
@@ -73,6 +73,6 @@ const css = StyleSheet.create({
         padding: 10
     },
     categoryText: {
-        color: "white"
+        color: "black"
     }
 })

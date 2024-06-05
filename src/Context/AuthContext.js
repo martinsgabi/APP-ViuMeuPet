@@ -1,15 +1,16 @@
 import { createContext, useState } from "react";
 
+//login:
 export const AuthContext = createContext(0);
 
 function AuthProvider({ children }) {
-    const [logado, setLogado] = useState(false);
+    const [logado, setLogado] = useState(true);//true/false
     const [error, setError] = useState(false);
 
     async function Login(email, senha) {
 
         if (email != "" && senha != "") {
-            await fetch('https://fakestoreapi.com/auth/login', {
+            await fetch('http://10.139.75.18:5251/api/Usuarios/GetAllUsuarios/', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

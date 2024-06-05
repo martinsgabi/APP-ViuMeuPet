@@ -30,9 +30,10 @@ export default function Rotas() {
                     headerShown: false,
                     tabBarShowLabel: false,
                     tabBarStyle: {
-                        backgroundColor: '#191919',
+                        backgroundColor: '#FBF6F3',
                     },
-                    tabBarActiveTintColor: "white"
+                    tabBarActiveTintColor: "#7723CD"
+                    //acrescentar cor nos itens
                 }}
             >
                 <Tab.Screen

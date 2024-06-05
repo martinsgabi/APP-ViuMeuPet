@@ -16,33 +16,33 @@ export default function Login() {
 
     return (
         <ScrollView contentContainerStyle={css.container}>
-            <Image source={require("../../assets/logo.png")} style={css.logo} />
+            <Image source={require("../../assets/logo- viu meu pet.png")} style={css.logo} />
             <TextInput
                 inputMode="email"
-                placeholder="Email"
+                placeholder="Email do Usuário"
                 style={css.input}
                 value={email}
                 onChangeText={(digitado) => setEmail(digitado)}
-                placeholderTextColor="white"
+                placeholderTextColor="#D3ABFC"
             />
             <TextInput
                 inputMode="text"
-                placeholder="Password"
+                placeholder="Senha"
                 secureTextEntry={true}
                 style={css.input}
                 value={senha}
                 onChangeText={(digitado) => setSenha(digitado)}
-                placeholderTextColor="white"
+                placeholderTextColor="#D3ABFC"
             />
             <View style={css.forgot}>
                 <Text style={css.forgotText}>Esqueceu a senha?</Text>
             </View>
             <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
-                <Text style={css.btnLoginText}>Log In</Text>
+                <Text style={css.btnLoginText}>ENTRAR</Text>
             </TouchableOpacity>
             {error &&
                 <View style={css.error}>
-                    <Text style={css.errorText}>Revise os campos. Tente novamente!</Text>
+                    <Text style={css.errorText}>Email ou Senha incorretos</Text>
                 </View>
             }
         </ScrollView>
@@ -55,10 +55,10 @@ const css = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#191919"
+        backgroundColor: "#FBF6F3"
     },
     logo: {
-        width: "60%",
+        width: "50%",
         resizeMode: "contain"
     },
     input: {
@@ -67,8 +67,11 @@ const css = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 15,
         padding: 15,
-        backgroundColor: "#262626",
-        color: "white"
+        backgroundColor: "#FBF6F3",
+        borderWidth: 3,
+        borderColor: "#7723CD",
+        color: "black",
+
     },
     forgot: {
         width: "90%",
@@ -77,7 +80,7 @@ const css = StyleSheet.create({
         alignItems: "flex-end",
     },
     forgotText: {
-        color: "#0195fd",
+        color: "#E3AB1D",
         fontWeight: "bold"
     },
     btnLogin: {
@@ -86,7 +89,8 @@ const css = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         marginTop: 30,
-        backgroundColor: "#0195fd"
+        borderWidth: 0,
+        backgroundColor: "#E3AB1D"
     },
     btnLoginText: {
         color: "white",
@@ -101,7 +105,7 @@ const css = StyleSheet.create({
         marginTop: 30
     },
     errorText: {
-        color: "white",
+        color: "#7723CD",
         textAlign: "center"
     }
 });
