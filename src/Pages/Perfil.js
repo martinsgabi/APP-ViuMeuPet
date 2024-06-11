@@ -10,13 +10,13 @@ export default function Perfil() {
 }
 const css = StyleSheet.create({
   container: {
-    backgroundColor: "#191919",
+    backgroundColor: "#FBF6F3",
     flexGrow: 1,
-    color: "white",
+    color: "black",
     justifyContent: "center",
     alignItems: "center"
   },
   text: {
-    color: "white"
+    color: "black"
   }
 })

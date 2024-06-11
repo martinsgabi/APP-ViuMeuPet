@@ -40,6 +40,9 @@ export default function Login() {
             <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
                 <Text style={css.btnLoginText}>ENTRAR</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={css.btnLogin}>
+                <Text style={css.btnLoginText}>CADASTRA-SE</Text>
+            </TouchableOpacity>
             {error &&
                 <View style={css.error}>
                     <Text style={css.errorText}>Email ou Senha incorretos</Text>
@@ -63,7 +66,7 @@ const css = StyleSheet.create({
     },
     input: {
         width: "90%",
-        height: 50,
+        height: 60,
         borderRadius: 10,
         marginBottom: 15,
         padding: 15,

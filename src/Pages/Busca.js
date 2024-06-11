@@ -2,30 +2,30 @@ import { View, Text, TextInput, StyleSheet, FlatList, ActivityIndicator } from '
 import React, { useEffect, useState } from 'react';
 
 export default function Busca() {
-    const [usuarios, setUsuarios ] = useState( [] );
+    const [pets, setPets ] = useState( [] );
     const [error, setError ] = useState(false);
     const [busca, setBusca] = useState(false);
     const [filtro, setFiltro ] = useState(false);
 
-    async function getUsuarios()
+    async function getPets()
     {
-        await fetch('https://fakestoreapi.com/users', {
+        await fetch('http://10.139.75.18/api/Animais/GetAllAnimais', {
             method: 'GET',
             headers: {
               'content-type': 'application/json'
             }
           })
             .then( res => ( res.ok == true ) ? res.json() : false )
-            .then( json => setUsuarios( json ) )
+            .then( json => setPets( json ) )
             .catch( err => setError( true ) )
     }
 
     useEffect( () => {
-        getUsuarios();
+        getPets();
     }, [] );
 
     useEffect( () => {
-        setFiltro( usuarios.filter( (item) => item.name.firstname == busca )[0] );
+        setFiltro( pets.filter( (item) => item.animalNome == busca )[0] );
     }, [busca] );
 
     return (
@@ -33,14 +33,14 @@ export default function Busca() {
             <View style={css.searchBox}>
                 <TextInput
                     style={css.search}
-                    placeholder="Buscar usuarios"
-                    placeholderTextColor="white"
+                    placeholder="Buscar animais"
+                    placeholderTextColor="#C39FE9"
                     TextInput={busca}
                     onChangeText={(digitado) => setBusca( digitado ) }
                 />
             </View>
-            { filtro && <Text style={css.text}>{filtro.name.firstname} {filtro.name.lastname}</Text> }
-            { ( !filtro && busca ) && <ActivityIndicator size="large" color="white" /> }
+            { filtro && <Text style={css.text}>{filtro.animalNome} </Text> }
+            { ( !filtro && busca ) && <ActivityIndicator size="large" color="#E3AB1D" /> }
         </View>
     )
 }
@@ -49,10 +49,11 @@ const css = StyleSheet.create({
         flexGrow: 1,
         width: "100%",
         alignItems: "center",
-        backgroundColor: "#191919",
+        backgroundColor: "#FBF6F3",
     },
     text: {
-        color: "white"
+        color: "black",
+        marginTop: 20
     },
     searchBox: {
         width: "100%",
@@ -61,12 +62,12 @@ const css = StyleSheet.create({
         alignItems: "center",
     },
     search: {
-        width: "96%",
+        width: "90%",
         height: 60,
-        borderWidth: 1,
-        borderColor: "white",
+        borderWidth: 3,
+        borderColor: "#7723CD",
         borderRadius: 8,
         padding: 10,
-        color: "white"
+        color: "black"
     }
 })
