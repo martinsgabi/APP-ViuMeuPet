@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Produto from '../Components/Produto';
 import Detalhes from '../Components/Detalhe';
 
@@ -10,6 +10,7 @@ export default function Home() {
   const [animais, setAnimais] = useState([]);
   const [detalhe, setDetalhe ] = useState(false);
   const [animal, setAnimal] = useState();
+
   
 
   async function getAnimais() {
@@ -40,6 +41,8 @@ export default function Home() {
     getAnimais();
   }, [])
 
+ 
+  
   return (
     <View style={css.container}>
       {animais && !detalhe && //se tem "produtos"
@@ -47,7 +50,7 @@ export default function Home() {
         <Text style={css.titulo}>Desaparecidos</Text>
           <FlatList style={css.lista} //se tem produtos: mostra a flat lista
             data={animais} //produtos: todos os produtos q tem no banco [..., ..., ...,]=> le um item de cada vez, um por um 
-            renderItem={({ item }) => <Produto setDetalhe={setDetalhe} animalNome={item.animalNome} animalFoto={item.animalFoto} getAnimalDetalhes={() => getAnimalDetalhes(item.animaisId)} />} //item."..." = passa ietm por item (apelido) e chamando oq ele quer do item
+            renderItem={({ item }) => <Produto animalNome={item.animalNome} animalFoto={item.animalFoto} setDetalhe={() => { getAnimalDetalhes( item.animaisId); setDetalhe( true ); }} />} //item."..." = passa ietm por item (apelido) e chamando oq ele quer do item
             keyExtractor={(item) => item.animaisId} 
             contentContainerStyle={{ height: (animais.length * 600) + 110 }}
           />
@@ -57,7 +60,7 @@ export default function Home() {
       { !animais && !detalhe &&
         <Text style={css.text}>Carregando...</Text>
       }
-      { detalhe && <Detalhes setDetalhe={setDetalhe} animal={animal} /> }
+      { detalhe && animal && <Detalhes setDetalhe={ () => { setDetalhe( false ); setAnimal("" )}} animal={animal} /> }
     </View>
   )
 }

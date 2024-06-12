@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 
 import Home from '../Pages/Home';
-import Busca from '../Pages/Busca';
 import Login from '../Pages/Login';
 
 import Perfil from '../Pages/Perfil';
@@ -32,7 +31,8 @@ export default function Rotas() {
                     tabBarStyle: {
                         backgroundColor: '#FBF6F3',
                     },
-                    tabBarActiveTintColor: "#7723CD"
+                    tabBarActiveTintColor: "#7723CD",
+                    tabBarInactiveTintColor: "#D3ABFC"
                     //acrescentar cor nos itens
                 }}
             >
@@ -45,37 +45,28 @@ export default function Rotas() {
                         ),
                     }}
                 />
-                <Tab.Screen
-                    name="Busca"
-                    component={Busca}
-                    options={{
-                        tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name="magnify" color={color} size={size} />
-                        ),
-                    }}
-
-                />
+                
                 <Tab.Screen
                     name="Inserir"
                     component={Inserir}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="plus-box" color={color} size={size} />
+                            
                         ),
                     }}
                 />
-                
+
                 <Tab.Screen
                     name="Perfil"
                     component={Perfil}
                     options={{
                         tabBarIcon: ({ color, size }) => (
                             <MaterialCommunityIcons name="account-circle" color={color} size={size} />
+                            
                         ),
                     }}
                 />
-
-                
             </Tab.Navigator>
         </NavigationContainer>
     )

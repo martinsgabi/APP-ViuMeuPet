@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function Produto({ animalNome, animalFoto, getAnimalDetalhes, setDetalhe }) {
+export default function Produto({ animalNome, animalFoto, setDetalhe }) {
     return (
         <View style={css.container}>
             <View style={css.caixa}>
@@ -11,7 +11,7 @@ export default function Produto({ animalNome, animalFoto, getAnimalDetalhes, set
                 <View style={css.boxImage}>
                     <Image source={{ uri: animalFoto }} style={css.imagem}/>
                 </View>
-                <TouchableOpacity onPress={() => { getAnimalDetalhes(); setDetalhe(true) } } style={css.btnDetalhes}>
+                <TouchableOpacity onPress={setDetalhe} style={css.btnDetalhes}>
                     <Text style={css.btnDetalhesText}>DETALHES</Text>
                 </TouchableOpacity>
           </View>
