@@ -11,6 +11,18 @@ export default function Home() {
   const [detalhe, setDetalhe ] = useState(false);
   const [animal, setAnimal] = useState();
 
+
+    const [error, setError ] = useState(false);
+    const [ animaisId, setAnimaisId ] = useState(0);
+    const [ animalNome, setAnimalNome ] = useState();
+    const [ animalRaca, setAnimalRaca ] = useState();
+    const [ animalCor, setAnimalCor ] = useState();
+    const [ animalSexo, setAnimalSexo ] = useState();
+    const [ animalFoto, setAnimalFoto] = useState();
+    const [ animalDtDesaparecimento, setAnimalDtDesaparecimento ] = useState();
+    const [ animalStatus, setAnimalStatus ] = useState();
+    const [ usuarioId, setUsuarioId ] = useState(0);
+    
   
 
   async function getAnimais() {
@@ -41,6 +53,28 @@ export default function Home() {
     getAnimais();
   }, [])
 
+  async function getAnimal( id )
+    {      
+      await fetch('http://10.139.75.18/api/Animais/GetAnimalId/' + id, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        },
+      })
+      .then((response) => response.json())
+      .then(json => {
+        setAnimaisId(json.animaisId);
+        setAnimalNome( json.animalNome );
+        setAnimalRaca( json.animalRaca );
+        setAnimalCor( json.animalCor );
+        setAnimalSexo( json.animalSexo );
+        setAnimalFoto( json.animalFoto );
+        setAnimalDtDesaparecimento( json.animalDtDesaparecimento );
+        setAnimalStatus( json.animalStatus );
+        setUsuarioId( json.usuarioId)
+      });
+    }
+    
  
   
   return (

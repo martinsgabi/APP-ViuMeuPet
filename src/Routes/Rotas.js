@@ -8,7 +8,6 @@ import { AuthContext } from '../Context/AuthContext';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 
-import Perfil from '../Pages/Perfil';
 import Inserir from '../Pages/Inserir';
 
 
@@ -57,16 +56,7 @@ export default function Rotas() {
                     }}
                 />
 
-                <Tab.Screen
-                    name="Perfil"
-                    component={Perfil}
-                    options={{
-                        tabBarIcon: ({ color, size }) => (
-                            <MaterialCommunityIcons name="account-circle" color={color} size={size} />
-                            
-                        ),
-                    }}
-                />
+                
             </Tab.Navigator>
         </NavigationContainer>
     )
