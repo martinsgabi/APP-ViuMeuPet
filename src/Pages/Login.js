@@ -14,7 +14,7 @@ export default function Login() {
         Login(email, senha);
     }
     return (
-        <View>
+        <View style={css.tela}>
             {cadastro != true ?
                 <ScrollView contentContainerStyle={css.container}>
                     <Image source={require("../../assets/logo- viu meu pet.png")} style={css.logo} />
@@ -35,9 +35,7 @@ export default function Login() {
                         onChangeText={(digitado) => setSenha(digitado)}
                         placeholderTextColor="#D3ABFC"
                     />
-                    <View style={css.forgot}>
-                        <Text style={css.forgotText}>Esqueceu a senha?</Text>
-                    </View>
+                    
                     <TouchableOpacity style={css.btnLogin} onPress={RealizaLogin}>
                         <Text style={css.btnLoginText}>ENTRAR</Text>
                     </TouchableOpacity>
@@ -63,7 +61,10 @@ const css = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#FBF6F3",
+        
+    },
+    tela: {
+        backgroundColor: "#FBF6F3"
     },
     logo: {
         width: "50%",
@@ -97,9 +98,9 @@ const css = StyleSheet.create({
         height: 50,
         borderWidth: 1,
         borderRadius: 10,
-        marginTop: 30,
+        marginTop: 20,
         borderWidth: 0,
-        backgroundColor: "#E3AB1D"
+        backgroundColor: "#E3AB1D",
     },
     btnLoginText: {
         color: "white",
@@ -115,6 +116,7 @@ const css = StyleSheet.create({
     },
     errorText: {
         color: "#7723CD",
-        textAlign: "center"
+        textAlign: "center",
+        fontWeight: "bold"
     }
 });
